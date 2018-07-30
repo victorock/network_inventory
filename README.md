@@ -38,12 +38,9 @@ Follow below different examples and ways to use this role.
   hosts: all
   connection: local
   gather_facts: false
-
-  vars:
-    network_discovery_community: "mycommunity"
-
   roles:
     - role: victorock.network_discovery
+      network_discovery_community: "mycommunity"
       autorun: true
 ```
 
@@ -78,9 +75,9 @@ Requirements
 --------------
 
 You need to have facts populated by platform specific roles supported by Ansible Networking:
+  - ansible-network.arista_eos
   - ansible-network.cisco_ios
   - ansible-network.cisco_nxos
-  - ansible-network.arista_eos
 
 License
 ------------
