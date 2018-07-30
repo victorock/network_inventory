@@ -1,0 +1,5 @@
+- name: "group_vars.yaml"
+  include_tasks: group_vars.yaml
+
+- name: "host_vars.yaml"
+  include_tasks: host_vars.yaml

@@ -1,0 +1,2 @@
+{{ ansible_managed | comment }}
+{{ hostvars[inventory_hostname][network_inventory_platform_map[network_inventory_os]].config | default({}) | to_nice_yaml }}

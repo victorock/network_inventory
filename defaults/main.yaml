@@ -1,0 +1,1 @@
+network_inventory_os: "{{ ansible_network_os | default('ios') }}"
