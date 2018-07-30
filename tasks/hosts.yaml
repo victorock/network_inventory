@@ -3,4 +3,4 @@
   local_action:
     module: template
     src: "hosts.yaml.j2"
-    dest: "hosts.yaml"
+    dest: "{{ playbook_dir }}/hosts.yaml"

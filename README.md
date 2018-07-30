@@ -71,6 +71,9 @@ Follow below different examples and ways to use this role.
       autorun: true
 ```
 
+> NOTE: Inventory files are created in the same directory of the playbook
+calling the role `victorock.network_inventory`
+
 Requirements
 --------------
 

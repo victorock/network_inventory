@@ -1,3 +1,6 @@
+- name: "hosts.yaml"
+  include_tasks: hosts.yaml
+
 - name: "group_vars.yaml"
   include_tasks: group_vars.yaml
 
