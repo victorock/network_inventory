@@ -1,0 +1,12 @@
+---
+- name: "Ensure state of directory host_vars/<device>"
+  local_action:
+    module: file
+    path: "{{ playbook_dir }}/host_vars/{{ inventory_hostname }}"
+    state: directory
+
+- name: "Ensure content of host_vars/<inventory_hostname>/network_inventory.yaml"
+  local_action:
+    module: template
+    src: "host_vars/network_inventory.yaml.j2"
+    dest: "{{ playbook_dir }}/host_vars/{{ inventory_hostname }}/network_inventory.yaml"

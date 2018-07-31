@@ -1,0 +1,17 @@
+{{ ansible_managed | comment }}
+all:
+  hosts:
+{% for host in hostvars.keys() %}
+    {{ host }}:
+      groups: "{{ hostvars[host].group_names | join(',') }}"
+{% endfor %}
+  children:
+{% for group in groups.keys() %}
+{% if (groups[group] | length) and (group != 'all') %}
+    {{ group }}:
+      hosts:
+{% for host in groups[group] %}
+        {{ host }}
+{% endfor %}
+{% endif %}
+{% endfor %}

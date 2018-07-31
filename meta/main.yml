@@ -1,0 +1,26 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: network_inventory
+  author: "Victor da Costa (@victorock)"
+  description: "Ansible Role to Create Network Inventory structure based on content of Ansible Networking parsers."
+  company: "Ansible"
+  license: GPLv3
+  min_ansible_version: 2.6
+  platforms:
+    - name: eos
+      version:
+        - any
+    - name: ios
+      version:
+        - any
+    - name: nxos
+      version:
+        - any
+  galaxy_tags:
+    - network
+    - discover
+    - snmp
+    - probe
+    - inventory

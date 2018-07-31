@@ -1,0 +1,12 @@
+---
+- name: "Ensure state of directory group_vars/<platform>"
+  local_action:
+    module: file
+    path: "{{ playbook_dir }}/group_vars/{{ network_inventory_os }}"
+    state: directory
+
+- name: "Ensure content of group_vars/<platform>/network_inventory.yaml"
+  local_action:
+    module: template
+    src: "group_vars/network_inventory.yaml.j2"
+    dest: "{{ playbook_dir }}/group_vars/{{ network_inventory_os }}/network_inventory.yaml"
