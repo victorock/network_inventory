@@ -1,24 +1,14 @@
 Ansible Role to Create Network Inventory
 =========
 
-Ansible role to create network inventory based on device facts gathered by platform
-specific roles (`see vars/main.yaml`).
+Ansible role to create network inventory folder/files structure based on device facts.
 
-Contribute
---------------
-
-If the platform you were looking for didn't get populated:
-1. Fork this repository.
-2. Update the file `vars/main.yaml`.
-3. Commit your change.
-4. Send your Pull Request.
-
-> NOTE: Inventory is populated based on facts located at: hostvars[inventory_hostname][network_inventory_platform_map[network_inventory_os]].config
+> NOTE: Inventory is populated based on facts located at: hostvars[inventory_hostname].ansible_facts
 
 Role Variables
 --------------
 
-Variables are defined in `defaults/main.yml` and structured/encapsulated in `vars/main.yaml`.
+Variables are defined in `defaults/main.yml`.
 
 | Name              | Default Value       | Description          |
 |-------------------|---------------------|----------------------|
@@ -34,13 +24,13 @@ Follow below different examples and ways to use this role.
 
 ```YAML
 ---
-- name: "Network Discovery: SNMP"
+- name: "Network Discovery: PROBE"
   hosts: all
   connection: local
   gather_facts: false
   roles:
     - role: victorock.network_discovery
-      network_discovery_community: "mycommunity"
+      network_discovery: "probe"
       autorun: true
 ```
 
@@ -77,7 +67,7 @@ calling the role `victorock.network_inventory`
 Requirements
 --------------
 
-You need to have facts populated by platform specific roles supported by Ansible Networking:
+The best is to have facts populated by platform specific roles supported by Ansible Networking:
   - ansible-network.arista_eos
   - ansible-network.cisco_ios
   - ansible-network.cisco_nxos

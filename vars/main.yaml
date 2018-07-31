@@ -1,4 +1,0 @@
-network_inventory_platform_map:
-  eos: "arista_eos"
-  ios: "cisco_ios"
-  nxos: "cisco_nxos"
