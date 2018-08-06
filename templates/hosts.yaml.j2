@@ -13,7 +13,7 @@ all:
     {{ group }}:
       hosts:
 {%      for host in groups[group] %}
-        {{ host }}:
+        {{ hostvars[host].ansible_net_hostname }}:
 {%      endfor %}
 {%    endif %}
 {%  endif %}
