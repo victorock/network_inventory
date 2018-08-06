@@ -3,6 +3,7 @@ all:
   hosts:
 {% for host in ansible_play_hosts %}
     {{ host }}:
+      ansible_host: "{{ host }}"
       groups: "{{ hostvars[host].group_names | join(',') }}"
 {% endfor %}
   children:
