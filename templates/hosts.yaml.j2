@@ -1,17 +1,19 @@
 {{ ansible_managed | comment }}
 all:
   hosts:
-{% for host in hostvars.keys() %}
+{% for host in ansible_play_hosts %}
     {{ host }}:
       groups: "{{ hostvars[host].group_names | join(',') }}"
 {% endfor %}
   children:
 {% for group in groups.keys() %}
-{% if (groups[group] | length) and (group != 'all') %}
+{%  if (groups[group] | length) %}
+{%    if (group != 'all') and (group != 'ungrouped') %}
     {{ group }}:
       hosts:
-{% for host in groups[group] %}
-        {{ host }}
-{% endfor %}
-{% endif %}
+{%      for host in groups[group] %}
+        {{ host }}:
+{%      endfor %}
+{%    endif %}
+{%  endif %}
 {% endfor %}
